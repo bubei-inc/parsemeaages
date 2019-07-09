@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<HTML>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+
+    <style type="text/css">
+        a { text-decoration: none; color: #0088CC; }
+        a:hover { text-decoration: underline }
+
+        /*Body style for Outlook 2010*/
+        body {
+            font-size: 18px;
+            width: 100% !important;
+            background-color: white;
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', 'Arial', 'Helvetica', 'Verdana', sans-serif;
+            color: #333333;
+            
+            line-height: 26px;
+        }
+        
+        @media only screen and (-webkit-min-device-pixel-ratio:1.5), only screen and (min-device-pixel-ratio:1.5) {
+            
+            img { visibility: hidden }
+            *[class=more], *[class~=aapl-link] img { visibility:visible !important;}
+            *[class=logo] {
+                background: url('https://www.apple.com/support/images/emails/2016/apple-2x-large.png') no-repeat 0 0;
+                -webkit-background-size: 36px auto;
+                max-width: 36px;
+                height: auto;
+                background-position: top left;
+                display: block;
+            }
+        }
+        
+        /*PHONE STYLES - For clients that support media queries (copied from previous templates)*/
+       @media only screen and (max-width:735px)  {
+            img { visibility:hidden }
+            .top-padding { line-height:60px !important } /*padding or height do not work on Outlook, must use line-height*/
+             td[class="emailcontent"] {
+                padding-left: 15px !important;
+                padding-right: 15px !important;
+                padding-bottom: 44px !important;
+            }
+             td[class="emailcontent2"] {
+                padding-left: 15px !important;
+                padding-right: 15px !important;
+                padding-bottom: 30px !important;
+            }
+            td[class="emailcontentpost"] {
+                padding-top: 44px!important ;
+                padding-left: 15px !important;
+                padding-right: 15px !important;
+                padding-bottom: 44px!important;
+            }
+            td[class="emailcontentpost2"] {
+                padding-left: 15px !important;
+                padding-right: 15px !important;
+                padding-bottom: 44px!important;
+            }
+            table {
+                width: 100%!important;
+                padding: 0;  
+            }     
+            #transcript {
+                padding-left: 15px !important;
+                padding-right: 15px !important;
+                padding-top: 36px !important;
+                padding-bottom: 36px !important;
+            }
+            /* Not used
+                 table[class='responsive'],
+                 table[class='responsive'] tbody,
+                 table[class='responsive'] tr,
+                 table[class='responsive'] td {display:block} 
+                 td img {max-width:100%!important; height:auto!important} */
+            td[class='footer'] {
+                -webkit-text-size-adjust: 100% !important
+            }          
+            .heading { 
+                font-size: 32px !important;
+                line-height: 36px !important;
+                font-weight: 200;
+                padding: 20px 0px 34px 0px !important;
+                margin: 0;
+                border: 0;
+                display: block;
+            }
+            .footer {
+                padding: 34px 10px 34px 10px !important;
+                text-align:center;
+            }
+            *[class=more], *[class~=aapl-link] img { visibility:visible !important;}
+            *[class=logo] {
+                background:url('https://www.apple.com/support/images/emails/2016/apple-2x-small.png') no-repeat 0 0;
+                -webkit-background-size: 30px auto;
+                max-width: 30px;
+                height: auto;
+                background-position: top left;
+                display: block;
+            }
+        }
+        
+    </style>
+    <!-- Turn off telephone number detection. -->
+    <meta content="telephone=no" name="format-detection">
+</head>
+<body bgcolor="white" style="width: 100% !important; margin:0;padding:0; font-family: 'Helvetica Neue', 'Arial', 'Helvetica', 'Verdana', sans-serif; color: #333333;" dir="ltr">
+    <table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0" align="center" style="border-collapse: collapse;" dir="ltr">
+        <tr>
+            <td class="top-padding" width="100%" style="line-height:120px;" >
+                &nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td valign="top">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse;">
+                    <tr style="width:100%!important;" align="center">
+                        <td>
+                            <!-- Apple Logo and Title -->
+                            <table width="692" border="0" cellspacing="0" cellpadding="0" align="center" style="border-collapse: collapse;">
+                                <tr width="100%" border="0" cellspacing="0" cellpadding="0">
+                                    <td align="center" align="middle" style="padding:0px 0px 0px 0px;">
+                                        <span class="logo"><img src="https://www.apple.com/support/images/emails/2016/apple-1x-large.png" width="36px" height="auto" border="0" alt=""></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td valign="top" align="center" style="padding:0px 0px 0px 0px;">
+                                        <!-- TEMPLATE: ADD MAIN TITLE -->
+                                        <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" style="border-collapse: collapse;">
+											<tr align="center">
+                                                <td class="heading" align="center" width="90%" style="font-family: 'Helvetica Neue', 'Arial', 'Helvetica', 'Verdana', sans-serif; font-size:52px; line-height:56px; font-weight: 200; padding:40px 0px 64px 0px; margin:0; border: 0; display:block; text-align:center;">
+                                                    感谢您联系我们。
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table width="692px" border="0" cellspacing="0" cellpadding="0" align="center" style="border-collapse: collapse;">
+                                <tr>
+                                    <td style="color:#333333; padding:0px; margin:0px;">
+                                        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse;">
+                                            <tr>
+                                                                                                <td style="                                                           padding:0px 0 30px 0px; 
+                                                                                                                       margin:0; font-family: 'Helvetica Neue', 'Arial', 'Helvetica', 'Verdana', sans-serif; color: #333333; font-size:18px; line-height: 26px; width:692px" 
+                                                    class="emailcontent2">
+                                                                                                  <!-- TEMPLATE: ADD INTRO COPY -->
+                                                                                                          孙雨鹏先生/女士，您好：
+                                                                                                                                                        </td>
+                                            </tr>
+                                        </table>
+                                        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse;">
+                                            <tr>
+                                                                                                <td style="
+                                                                                                                      padding:0px 0 64px 0px; 
+                                                                                                                      margin:0px; font-family: 'Helvetica Neue', 'Arial', 'Helvetica', 'Verdana', sans-serif; color: #333333; font-size:18px; line-height: 26px; width:692px" class="emailcontentpost2">
+                                                                                                  <!-- TEMPLATE: ADD INTRO COPY -->
+                                                                                                        
+                                                                                                          根据您所提供的详细信息，我们认为下列信息可能会对您有所帮助：<br><br>
+
+                                                      
+                                                      
+                                                                                                                                                                        <a href="https://support.apple.com/kb/HT209095?viewlocale=zh_CN" class="aapl-link" style="color:#0088cc">Mac 维修前的准备工作</a>  <br>
+
+                                                        
+
+                                                      
+                                                                                                            <br>												
+                                                    
+
+                                                    我们随时为您提供帮助。您可以访问 <a class="aapl-link" style="color:#0088cc" href="http://www.apple.com/cn/support/">Apple 支持</a>，进一步了解您的产品，下载最新的软件更新，并与其他用户分享使用技巧和解决方案。您也可以找到与我们取得联系的最佳方式。
+                                                    <br><br>
+                                                    谨启！<br>
+Apple 支持
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                                        <tr style="width:100%!important; background-color:#F2F2F2;" align="center">
+                        <td class="footer" style="padding-top: 64px; padding-bottom: 64px">
+                            <table width="692" border="0" cellspacing="0" cellpadding="0" align="center" style="border-collapse: collapse;">
+                                <tr width="100%" border="0" cellspacing="0" cellpadding="0">
+                                    <td align="center" align="middle" style="font-family: 'Helvetica Neue', 'Arial', 'Helvetica', 'Verdana', sans-serif; color:#999999; text-align:center; font-size:12px; line-height:16px; padding:4px;">
+                                        TM 和版权所有 © 2019
+                                    </td>
+                                </tr>
+                                <tr width="100%" border="0" cellspacing="0" cellpadding="0">
+                                    <td align="center" align="middle" style="font-family: 'Helvetica Neue', 'Arial', 'Helvetica', 'Verdana', sans-serif; text-align:center; font-size:12px; line-height:16px;">
+                                        <a style="color:#666666;" href="http://www.apple.com/cn/legal/">保留所有权利</a> | <a style="color:#666666;" href="http://www.apple.com/cn/privacy/">隐私政策</a> | <a style="color:#666666;" href="http://www.apple.com/cn/support/">支持</a> 
+                                    </td>
+                                </tr>
+                                <tr width="100%" border="0" cellspacing="0" cellpadding="0">
+                                    <td align="center" align="middle" style="font-family: 'Helvetica Neue', 'Arial', 'Helvetica', 'Verdana', sans-serif; color:#999999; text-align:center; font-size:12px; line-height:16px; padding:4px;">
+                                        
+                                    </td>
+                                </tr>
+                                <!-- TEMPLATE FOOTER - NEW NOREPLY DISCLAIMER -->
+              <tr width="100%" border="0" cellspacing="0" cellpadding="0">
+                <td align="center" align="middle" style="font-family: 'Helvetica Neue', 'Arial', 'Helvetica', 'Verdana', sans-serif; color:#999999; text-align:center; font-size:12px; line-height:16px; padding:4px; padding-top:32px; ">
+                  此邮件是从不接收传入邮件的电子邮件地址发送给您的。<br>
+对此邮件的任何回复都不会有人查看。如果您有任何问题，请访问 <a href="https://support.apple.com/zh-cn/contact" style="color: #666666">support.apple.com/contact</a>。
+                </td>
+              </tr>
+                            </table>
+                        </td>
+                    </tr>
+                                    </table>
+            </td>
+        </tr>
+    </table>
+        
+    <img src='http://outsideapple.apple.com/img/APPLE_EMAIL_LINK/spacer4.gif?v=2&a=GNrD1oki7T3YuffVHeDxpdYxoWmLwP0%2BFr%2FXhYOTuZdIUZNdkxlyJLn4BGgNXpxuUU%2FpJv8oHVC3gBXERo%2FT2UYfGK73D7mmUYEEGwnhb4nnv%2FzZqfhrjxmzjQh1PSVrxbKk4cJyPmE22HShPpNc2dAtyuT9EF2WeoY26K4KICE2FVr8kVVauyny1y4dcukRBTE3lW4SBO4xHeyestBLxzoLNM0EcGeEN7mUz%2BdHi%2FiGPx1ULGJdloXh5zg%2B1SmUx7TewksVzq3I4N4caqyKKeKTJQBvRysUYreEoWBv2GKT6aNY8IUQfWbmvLbOd2ECyJD58CfCU2jj1hI8CCO8eqmmESfSG5JX0SqKI4rkL77NZ%2B%2BBft31H4HFvI7%2BqAJSwOppW0oJ7opCFMGZfKt2obcj%2FURr7DLNVCXL0DzRniT2f4yByB2uM2ADxMU0YQVv7iOMspopj9xxO73CZWogow%3D%3D'/>
+</HTML>

@@ -1,0 +1,51 @@
+
+[
+squid:S106S"9Replace this use of System.out or System.err by a logger.(Ò½ŒÖıÿÿÿÿ8À‚Øİ¼-
+¸%squid:RedundantThrowsDeclarationCheck­"Remove the declaration of thrown exception 'java.io.UnsupportedEncodingException' which is a subclass of 'java.io.IOException'.(¨Ğµ×8³”Ûİ¼-
+[
+squid:S106Q"9Replace this use of System.out or System.err by a logger.(§¿‚«üÿÿÿÿ8À‚Øİ¼-
+[squid:UselessImportCheck"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8³×İ¼-
+vsquid:S2095Ô"RUse try-with-resources or close this "BufferedOutputStream" in a "finally" clause.(®‹Èğşÿÿÿÿ8òœŞİ¼-
+[
+squid:S106:"9Replace this use of System.out or System.err by a logger.(ù¨Ğ‚ùÿÿÿÿ8æÍ²İ¼-
+psquid:S1192Ã"LDefine a constant instead of duplicating this literal "multipart/*" 5 times.(ö·ãêøÿÿÿÿ8³”Ûİ¼-
+[
+squid:S106V"9Replace this use of System.out or System.err by a logger.(ü±Àıÿÿÿÿ8À‚Øİ¼-
+[
+squid:S1069"9Replace this use of System.out or System.err by a logger.(Œô«´úÿÿÿÿ8æÍ²İ¼-
+V
+squid:S106W"9Replace this use of System.out or System.err by a logger.(•ÌÏ¸8À‚Øİ¼-
+Psquid:S2692–"10 is a valid index, but is ignored by this check.(Ã¢ÂŠ8³”Ûİ¼-
+~squid:S1149–"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(Ôç Ÿ8³”Ûİ¼-
+~squid:S1149”"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(ôÈïÿ8³”Ûİ¼-
+jsquid:S3027…"FPut single-quotes around '5' to use the faster "indexOf(char)" method.(¦¥äñşÿÿÿÿ8³”Ûİ¼-
+[
+squid:S106["9Replace this use of System.out or System.err by a logger.(ãß„èıÿÿÿÿ8À‚Øİ¼-
+V
+squid:S106a"9Replace this use of System.out or System.err by a logger.(Çšõÿ8À‚Øİ¼-
+[
+squid:S106b"9Replace this use of System.out or System.err by a logger.(Ù•µ²øÿÿÿÿ8À‚Øİ¼-
+V
+squid:S106Y"9Replace this use of System.out or System.err by a logger.(îìÂ„8À‚Øİ¼-
+jsquid:S3027ƒ"FPut single-quotes around '1' to use the faster "indexOf(char)" method.(ò×¼´ÿÿÿÿÿ8³”Ûİ¼-
+[
+squid:S106T"9Replace this use of System.out or System.err by a logger.(£¥½åüÿÿÿÿ8À‚Øİ¼-
+V
+squid:S106X"9Replace this use of System.out or System.err by a logger.(Ç—©Î8À‚Øİ¼-
+jsquid:S00112""FDefine and throw a dedicated exception instead of using a generic one.(´ÎÖ”úÿÿÿÿ8¹—¯İ¼-
+[
+squid:S106c"9Replace this use of System.out or System.err by a logger.(ªÓ¼áşÿÿÿÿ8À‚Øİ¼-
+V
+squid:S1066"9Replace this use of System.out or System.err by a logger.(Ñ–éô8æÍ²İ¼-
+msquid:S1192Ú"ODefine a constant instead of duplicating this literal "message/rfc822" 3 times.(×íñ8³”Ûİ¼-
+[
+squid:S106="9Replace this use of System.out or System.err by a logger.(„¢ë¥øÿÿÿÿ8æÍ²İ¼-
+vsquid:S3776Á"RRefactor this method to reduce its Cognitive Complexity from 22 to the 15 allowed.(ˆ½ğñÿÿÿÿÿ8³”Ûİ¼-
+±%squid:RedundantThrowsDeclarationCheck®"xRemove the declaration of thrown exception 'java.io.FileNotFoundException' which is a subclass of 'java.io.IOException'.(‹­°‘8ßîİİ¼-
+[
+squid:S106U"9Replace this use of System.out or System.err by a logger.(Ş¨‰åÿÿÿÿÿ8À‚Øİ¼-
+V
+squid:S106R"9Replace this use of System.out or System.err by a logger.(˜µÇ„8À‚Øİ¼-
+¶%squid:RedundantThrowsDeclarationCheckÒ"xRemove the declaration of thrown exception 'java.io.FileNotFoundException' which is a subclass of 'java.io.IOException'.(ùàæ ùÿÿÿÿ8ßîİİ¼-
+‚squid:S1149_"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(Ö¤¨øÿÿÿÿ8À‚Øİ¼-
+qsquid:S3776­"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(¨Ğµ×8³”Ûİ¼-

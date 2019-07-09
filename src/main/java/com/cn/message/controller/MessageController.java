@@ -1,5 +1,7 @@
 package com.cn.message.controller;
 
+import com.cn.message.model.ServiceTicket;
+import lombok.val;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,9 +12,7 @@ import javax.mail.internet.MimeMultipart;
 import javax.mail.internet.MimeUtility;
 import java.io.*;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-import java.util.Properties;
+import java.util.*;
 
 /**
  * @author syp
@@ -30,6 +30,12 @@ public class MessageController {
         return null;
     }
 
+
+
+    @GetMapping("/getAllServiceTickets")
+    public List<ServiceTicket> getAll() throws IOException, MessagingException {
+        return all();
+    }
 
     public static void receive() throws Exception {
         // 准备连接服务器的会话信息
@@ -64,9 +70,52 @@ public class MessageController {
         Message[] messages = folder.getMessages();
         parseMessage(messages);
 
+
+
         //释放资源
         folder.close(true);
         store.close();
+
+
+    }
+
+    public static List<ServiceTicket> all() throws MessagingException, IOException {
+
+            // 准备连接服务器的会话信息
+            Properties props = new Properties();
+            props.setProperty("mail.store.protocol", "pop3");        // 协议
+            props.setProperty("mail.pop3.port", "110");                // 端口
+            props.setProperty("mail.pop3.host", "pop3.163.com");    // pop3服务器
+
+            // 创建Session实例对象
+            Session session = Session.getInstance(props);
+            Store store = session.getStore("pop3");
+            store.connect("james13511595044@163.com", "129329Sun");
+
+            // 获得收件箱
+            Folder folder = store.getFolder("INBOX");
+            /* Folder.READ_ONLY：只读权限
+             * Folder.READ_WRITE：可读可写（可以修改邮件的状态）
+             */
+            folder.open(Folder.READ_WRITE);    //打开收件箱
+        try {
+            // 由于POP3协议无法获知邮件的状态,所以getUnreadMessageCount得到的是收件箱的邮件总数
+            System.out.println("未读邮件数: " + folder.getUnreadMessageCount());
+
+            // 由于POP3协议无法获知邮件的状态,所以下面得到的结果始终都是为0
+            System.out.println("删除邮件数: " + folder.getDeletedMessageCount());
+            System.out.println("新邮件: " + folder.getNewMessageCount());
+
+            // 获得收件箱中的邮件总数
+            System.out.println("邮件总数: " + folder.getMessageCount());
+
+            // 得到收件箱中的所有邮件,并解析
+            Message[] messages = folder.getMessages();
+            return getAllServiceTickets(messages);
+        }finally {
+            folder.close(true);
+            store.close();
+        }
 
 
     }
@@ -90,7 +139,7 @@ public class MessageController {
             boolean isContainerAttachment = isContainAttachment(msg);
             System.out.println("是否包含附件：" + isContainerAttachment);
             if (isContainerAttachment) {
-                saveAttachment(msg, "c:\\mailtmp\\"+msg.getSubject() + "_"); //保存附件
+                saveAttachment(msg, "/Users/james/MailTest/"+msg.getSubject() + "_"); //保存附件
             }
             StringBuffer content = new StringBuffer(30);
             getMailTextContent(msg, content);
@@ -99,7 +148,31 @@ public class MessageController {
             System.out.println();
         }
 
+    }
 
+    public static List<ServiceTicket> getAllServiceTickets(Message[] messages) throws IOException, MessagingException {
+        if(messages == null || messages.length < 1) {
+            throw new MessagingException("未找到需要解析的邮件");
+        }
+
+        List<ServiceTicket> messageList = new ArrayList<ServiceTicket>();
+        for(Message message : messages) {
+            ServiceTicket serviceTicket = new ServiceTicket();
+            MimeMessage msg = (MimeMessage) message;
+            StringBuffer content = new StringBuffer(30);
+            getMailTextContent(msg, content);
+            serviceTicket.setContent(content.toString());
+            serviceTicket.setSize(msg.getSize() * 1024 + "kb");
+            serviceTicket.setTheme(getSubject(msg).toString());
+            serviceTicket.setReceiver(getReceiveAddress(msg, null));
+            serviceTicket.setCreateTime( getSentDate(msg, null));
+//            serviceTicket.setAttachment(getAllAttacment(msg));
+            serviceTicket.setSender(getFrom(msg));
+            messageList.add(serviceTicket);
+
+        }
+
+        return messageList;
     }
 
     /**
@@ -107,7 +180,7 @@ public class MessageController {
      * @param msg 邮件内容
      * @return 解码后的邮件主题
      */
-    public static String getSubject(MimeMessage msg) throws UnsupportedEncodingException, MessagingException {
+    public static  String getSubject(MimeMessage msg) throws UnsupportedEncodingException, MessagingException {
         return MimeUtility.decodeText(msg.getSubject());
     }
 
@@ -326,6 +399,34 @@ public class MessageController {
         }
     }
 
+    public static List<InputStream> getAllAttacment(Part part) throws MessagingException, IOException {
+        val attachList = new ArrayList<InputStream>();
+        if (part.isMimeType("multipart/*")) {
+            Multipart multipart = (Multipart) part.getContent();	//复杂体邮件
+            //复杂体邮件包含多个邮件体
+            int partCount = multipart.getCount();
+            for (int i = 0; i < partCount; i++) {
+                //获得复杂体邮件中其中一个邮件体
+                BodyPart bodyPart = multipart.getBodyPart(i);
+                //某一个邮件体也有可能是由多个邮件体组成的复杂体
+                String disp = bodyPart.getDisposition();
+                if (disp != null && (disp.equalsIgnoreCase(Part.ATTACHMENT) || disp.equalsIgnoreCase(Part.INLINE))) {
+                    InputStream is = bodyPart.getInputStream();
+                    attachList.add(is);
+                } else if (bodyPart.isMimeType("multipart/*")) {
+                    getAllAttacment(bodyPart);
+                } else {
+                    String contentType = bodyPart.getContentType();
+                    if (contentType.indexOf("name") != -1 || contentType.indexOf("application") != -1) {
+                        attachList.add(bodyPart.getInputStream());
+                    }
+                }
+            }
+        } else if (part.isMimeType("message/rfc822")) {
+            getAllAttacment((Part) part.getContent());
+        }
+        return attachList;
+    }
     /**
      * 读取输入流中的数据保存至指定目录
      * @param is 输入流
